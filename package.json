@@ -2,20 +2,62 @@
   "name": "@usersdb-monorepo/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start:fe": "nx run fe:dev",
+    "build:fe": "nx run fe:build",
+    "lint:fe": "nx run fe:lint",
+    "preview:fe": "nx run fe:preview",
+    "compile:be": "nx run be:compile",
+    "start-js:be": "nx run be:start-js",
+    "start:be": "nx run be:start",
+    "graphql-generate:be": "nx run be:graphql-generate",
+    "prisma-generate:be": "nx run be:prisma-generate",
+    "prisma-migrate-dev:be": "nx run be:prisma-migrate-dev",
+    "prisma-migrate-prod:be": "nx run be:prisma-migrate-prod",
+    "start:all": "concurrently \"npm run start:fe\" \"npm run start:be\""
+  },
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "@apollo/client": "^3.11.8",
+    "@apollo/server": "^4.11.0",
+    "@prisma/client": "^5.21.1",
+    "apollo-datasource": "^3.3.2",
+    "graphql": "^16.9.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "reflect-metadata": "^0.2.2",
+    "tsyringe": "^4.8.0"
+  },
   "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@graphql-codegen/cli": "5.0.3",
+    "@graphql-codegen/introspection": "4.0.3",
+    "@graphql-codegen/typescript": "4.1.0",
+    "@graphql-codegen/typescript-resolvers": "4.3.0",
     "@nx/js": "20.0.6",
     "@swc-node/register": "~1.9.1",
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
+    "@types/node": "^22.8.1",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "concurrently": "^9.0.1",
+    "eslint": "^9.13.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.13",
+    "globals": "^15.11.0",
     "nx": "20.0.6",
     "prettier": "^2.6.2",
+    "prisma": "^5.21.1",
+    "ts-node": "^10.9.2",
     "tslib": "^2.3.0",
-    "typescript": "~5.5.2"
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.10.0",
+    "vite": "^5.4.9",
+    "vite-tsconfig-paths": "^5.0.1"
   },
   "workspaces": [
-    "packages/*"
+    "apps/*"
   ]
 }

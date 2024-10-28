@@ -1,0 +1,30 @@
+{
+    "name": "fe",
+    "targets": {
+      "dev": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "vite --config apps/fe/vite.config.ts"
+        }
+      },
+      "build": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "tsc -b && vite build --config apps/fe/vite.config.ts"
+        }
+      },
+      "lint": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "eslint apps/fe -c apps/fe/eslint.config.js"
+        }
+      },
+      "preview": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "vite preview --config apps/fe/vite.config.ts"
+        }
+      }
+    }
+  }
+  

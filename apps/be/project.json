@@ -1,0 +1,48 @@
+{
+    "name": "be",
+    "targets": {
+      "compile": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "tsc --project apps/be/tsconfig.json"
+        }
+      },
+      "start-js": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "nx run be:compile && node apps/be/dist/index.js"
+        }
+      },
+      "start": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "npx ts-node apps/be/src/index.ts"
+        }
+      },
+      "graphql-generate": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "graphql-codegen --config apps/be/src/graphql/codegen.ts"
+        }
+      },
+      "prisma-generate": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "npx prisma generate --schema apps/be/src/prisma/schema.prisma"
+        }
+      },
+      "prisma-migrate-dev": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "npx prisma migrate dev --schema apps/be/src/prisma/schema.prisma"
+        }
+      },
+      "prisma-migrate-prod": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "npx prisma migrate deploy --schema apps/be/src/prisma/schema.prisma"
+        }
+      }
+    }
+  }
+  
